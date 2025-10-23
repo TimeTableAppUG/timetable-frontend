@@ -72,8 +72,7 @@ console.log(values)
            onChange ={onChange}
            />
         ))}
-        
-
+        <button className ="text-center bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px]"onSubmit = {handleSubmit}> Sign Up </button>
       </form>
     </div>
   );
