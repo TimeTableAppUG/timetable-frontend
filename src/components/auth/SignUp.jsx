@@ -1,78 +1,138 @@
 import { useState } from "react";
 import Input from "../Input";
-import "../Input.css"
-
-
+import Select from "../Select";
 
 export function SignUp() {
+  // State object to hold all form input values
   const [values, setValues] = useState({
     idNumber: "",
     firstName: "",
     lastName: "",
-    email:"",
-    password: ""
-    
-  })
+    email: "",
+    password: "",
+    confirmPassword: "",
+    Role: "",
+    Department: "",
+  });
 
-  const inputs= [
+  // function to determine maxlength for ID number based on selected role
+  const getRole = () => {
+    let maxlenght = 8;
+    if (values.Role === "Lecturer") {
+      maxlenght = 5;
+    }
+    return maxlenght;
+  };
+
+  // Array of attributes for input field
+  const inputs = [
     {
-      id:1,
-      type:"text",
+      id: "idNumber",
+      type: "text",
       name: "idNumber",
       placeholder: "11223344",
-      label: "ID Number"
+      label: "ID Number",
+      message: "Please enter a valid ID",
+      required: true,
+      MaxLength: getRole(),
+      pattern: "^[0-9]{5,}$", 
     },
     {
-      id:2,
-      type:"text",
+      id: "firstName",
+      type: "text",
       name: "firstName",
       placeholder: "Jane",
-      label: "First Name"
+      label: "First Name",
+      message: "Please enter your first name",
+      required: true,
+      pattern: "^[A-Za-z]{3,16}$", 
     },
-        {
-      id:3,
-      type:"text",
+    {
+      id: "lastName",
+      type: "text",
       name: "lastName",
       placeholder: "Doe",
-      label: "Last Name"
+      label: "Last Name",
+      message: "Please enter your last name",
+      required: true,
+      pattern: "^[A-Za-z]{3,12}$", 
     },
-        {
-      id:4,
-      type:"email",
+    {
+      id: "email",
+      type: "email",
       name: "email",
       placeholder: "example@school.edu",
-      label: "Email"
+      label: "Email",
+      message: "Please enter a valid email",
+      required: true,
+      pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$", 
     },
-        {
-      id:5,
-      type:"password",
+    {
+      id: "password",
+      type: "password",
       name: "password",
       placeholder: "*********",
-      label: "Password"
-    }
-  ]
+      label: "Password",
+      message: `Password must be a minimum of 8 characters in length with at least one number, one uppercase letter, and one symbol`,
+      required: true,
+      pattern: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$", 
+    },
+    {
+      id: "confirmPassword",
+      type: "password",
+      name: "confirmPassword",
+      placeholder: "*********",
+      label: "Confirm Password",
+      message: "The passwords don't match",
+      required: true,
+      pattern: values.password,
+    },
+  ];
 
-  const handleSubmit =(event) =>event.preventDefault()
-  const onChange= (event) => {
-    setValues({...values, [event.target.name]: event.target.value })
-  }
+  const handleSubmit = (event) => event.preventDefault();
+  
+  // tracks input changes for the input fields
+  const onChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
 
-console.log(values)
+  
   return (
     <div className="grid items-center justify-center text-center">
       <h1 className="mb-[5%] mt-[10%] "> Sign up </h1>
 
       <form onSubmit={handleSubmit}>
-      
+        <Select
+          id="Role"
+          value1="Student"
+          value2="Lecturer"
+          placeholder="Select Role"
+          onChange={onChange}
+        />
+        <Select
+          id="Department"
+          value1="Department 1"
+          value2="Department 2"
+          placeholder="Select Department"
+          onChange={onChange}
+        />
         {inputs.map((input) => (
           <Input
-           key = {input.id}
-           {...input}
-           value = {values[input.name]} 
-           onChange ={onChange}
-           />
+            key={input.id}
+            {...input}
+            value={values[input.name]}
+            onChange={onChange}
+            message={input.message}
+          />
         ))}
-        <button className ="text-center bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px]"onSubmit = {handleSubmit}> Sign Up </button>
+
+        <button
+          className="text-center bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px]"
+          onSubmit={handleSubmit}
+        >
+          {" "}
+          Sign Up{" "}
+        </button>
       </form>
     </div>
   );

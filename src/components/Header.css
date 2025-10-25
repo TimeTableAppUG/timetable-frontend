@@ -6,16 +6,9 @@
 .header-container {
   /* display: grid;
  place-items: center; */
-  background-image: linear-gradient(to right, #667eea, #764ba2);
-  height: 29%;
-  padding: 30px;
-  text-align: center;
-  font-family: "Inter";
-  color: #ffffff;
+ 
 }
-span {
-  font-family: "Noto Color Emoji";
-}
+
 
 h1 {
   
