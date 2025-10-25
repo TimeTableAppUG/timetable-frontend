@@ -1,13 +1,12 @@
-
-import './App.css';
-import { Header } from './components/Header';
+import { SignUp } from "./components/auth/SignUp";
+import { Header } from "./components/Header";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-   
-    </div>
+      <SignUp />
+    </>
   );
 }
 

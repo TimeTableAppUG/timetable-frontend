@@ -22,3 +22,12 @@ code {
 .emoji {
   font-family: "Noto Color Emoji";
 }
+
+span{
+  display: none;
+}
+
+
+input:invalid[focused="true"] ~ span {
+  display:block;
+}
