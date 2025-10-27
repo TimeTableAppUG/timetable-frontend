@@ -4,12 +4,24 @@ import Input from '../Input'
 
 export default function Login() {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
 
     const [loginDetails, setLoginDetails] = useState({
-
+        email: '',
+        password: ''
     })
+    const handleLoginSubmit = (event) => {
+        event.preventDefault();
+        console.log('This is the submit ', loginDetails)
+        // make use of auth context to send a post request to the backend and 
+        // redirect to lecturer or student dashboard after authentication
+    }
+
+    function loginUpdate(event) {
+        const { name, value } = event.target
+        setLoginDetails((previousDetails) => ({ ...previousDetails, [name]: value }))
+        console.log('This is the event.target', loginDetails)
+
+    }
 
 
 
@@ -38,14 +50,15 @@ export default function Login() {
     ]
 
     return (
-        <div>
+        <div className="grid items-center justify-center text-center">
             <h1 className="mb-[5%] mt-[10%]  text-center">Login </h1>
-            <form>
+            <form onSubmit={handleLoginSubmit}>
                 {inputFields.map((item, id) => {
                     return (
                         <Input key={item.id}
                             {...item}
-                            value={item.name == email ? email : password}
+                            value={loginDetails[item.name]}
+                            onChange={loginUpdate}
                             message={item.message}
                         />
 
@@ -54,8 +67,8 @@ export default function Login() {
                 )}
 
                 <button
-                    className="text-center bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px]"
-                    onSubmit={() => handleLoginSubmit()}>
+                    className=" bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px] items-center justify-center "
+                    type="submit">
                     Login
                 </button>
 
