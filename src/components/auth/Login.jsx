@@ -34,7 +34,18 @@ export default function Login() {
     return (
         <div>
             <form>
-                <Input></Input>
+                {inputFields.map((item, id) => {
+                    return (
+                        <Input key={item.id}
+                            {...item}
+                            value={values[item.name]}
+                            message={item.message}
+                        />
+
+                    )
+                }
+                )}
+
             </form>
 
         </div>
