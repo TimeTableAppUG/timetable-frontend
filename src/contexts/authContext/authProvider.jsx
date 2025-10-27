@@ -61,7 +61,22 @@ export default function AuthProvider({ children }) {
     }
 
 
+    const contextValues = {
+        signedUpUser,
+        loggedInUser,
+        setSignedUpUser,
+        setLoggedInUser,
+        handleLogin,
+        handleSignUp,
+        isLoggedIn,
+        logOut
+
+    }
+
+
     return (
-        <></>
+        <AuthContext.Provider value={contextValues}>
+            {children}
+        </AuthContext.Provider>
     )
 }
