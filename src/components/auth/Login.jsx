@@ -1,11 +1,17 @@
 import { useState } from 'react';
-import { Input } from '../Input'
+import Input from '../Input'
 
 
 export default function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const [loginDetails, setLoginDetails] = useState({
+
+    })
+
+
 
     const inputFields = [
         {
@@ -33,18 +39,25 @@ export default function Login() {
 
     return (
         <div>
+            <h1 className="mb-[5%] mt-[10%]  text-center">Login </h1>
             <form>
                 {inputFields.map((item, id) => {
                     return (
                         <Input key={item.id}
                             {...item}
-                            value={values[item.name]}
+                            value={item.name == email ? email : password}
                             message={item.message}
                         />
 
                     )
                 }
                 )}
+
+                <button
+                    className="text-center bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px]"
+                    onSubmit={() => handleLoginSubmit()}>
+                    Login
+                </button>
 
             </form>
 
