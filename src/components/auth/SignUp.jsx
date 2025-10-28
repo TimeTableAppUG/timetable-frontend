@@ -14,7 +14,7 @@ export function SignUp() {
     password: "",
     confirmPassword: "",
     role: "",
-    Department: "",
+    department: "",
   });
 
   // function to determine maxlength for ID number based on selected role
@@ -115,8 +115,8 @@ export function SignUp() {
       <form onSubmit={handleSubmit}>
         <Select
           id="role"
-          value1="Student"
-          value2="Lecturer"
+          value1="student"
+          value2="lecturer"
           placeholder="Select Role"
           onChange={onChange}
         />
