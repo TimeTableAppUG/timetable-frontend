@@ -20,7 +20,7 @@ export function SignUp() {
   // function to determine maxlength for ID number based on selected role
   const getRole = () => {
     let maxlenght = 8;
-    if (values.role === "Lecturer") {
+    if (values.role === "lecturer") {
       maxlenght = 5;
     }
     return maxlenght;
@@ -117,9 +117,9 @@ export function SignUp() {
 
       <form onSubmit={handleSubmit}>
         <Select
-          id="Role"
+          id="role"
           placeholder="Select Role"
-          optionValues={["Lecturer", "Student"]}
+          optionValues={["lecturer", "student"]}
           onChange={onChange}
         />
         <Select
