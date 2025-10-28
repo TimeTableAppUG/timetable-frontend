@@ -1,19 +1,26 @@
-import { useState } from 'react';
-import Input from '../Input'
+import { useState, useContext } from 'react';
+import Input from '../Input';
+import { AuthContext } from '../../contexts/authContext/authContext';
 
 
 export default function Login() {
 
+    const { loggedInUser, setLoggedInUser, handleLogin, isLoggedIn } = useContext(AuthContext)
+
 
     const [loginDetails, setLoginDetails] = useState({
-        email: '',
+        idNumber: '',
         password: ''
     })
     const handleLoginSubmit = (event) => {
         event.preventDefault();
+        setLoggedInUser(loginDetails)
+        console.log("Logged in user from context: ", loggedInUser);
+
+        handleLogin();
         console.log('This is the submit ', loginDetails)
-        // make use of auth context to send a post request to the backend and 
-        // redirect to lecturer or student dashboard after authentication
+
+        // redirect to lecturer or student dashboard after authentication using isloggedIn
     }
 
     function loginUpdate(event) {
@@ -25,16 +32,17 @@ export default function Login() {
 
 
 
+
     const inputFields = [
         {
-            id: "email",
-            type: "email",
-            name: "email",
-            placeholder: "example@ug.edu.gh",
-            label: "Email",
-            message: "Please enter a valid email",
+            id: "idNumber",
+            type: "text",
+            name: "idNumber",
+            placeholder: "11223344",
+            label: "ID Number",
+            message: "Please enter a valid ID",
             required: true,
-            pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$",
+            pattern: "^[0-9]{5,}$",
         },
         {
             id: "password",
