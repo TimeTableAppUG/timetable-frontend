@@ -8,7 +8,7 @@ export default function Login() {
 
 
 
-    const { loggedInUser, setLoggedInUser, handleLogin, isLoggedIn } = useContext(AuthContext)
+    const { loggedInUser, handleLogin, isLoggedIn } = useContext(AuthContext)
 
 
     const [loginDetails, setLoginDetails] = useState({
