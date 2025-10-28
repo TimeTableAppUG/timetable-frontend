@@ -1,14 +1,74 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AuthContext } from './authContext';
 import axios from 'axios';
 
 
 
 export default function AuthProvider({ children }) {
-    const api = axios.create({
-        baseURL: '',
-        withCredentials: true
+    const BASEURL = 'http://localhost:5000/api/auth'
+
+    const [authState, setAuthState] = useState({
+        accessToken: null,
+        refreshToken: null
     })
+
+    // authRef = useRef(authState)
+    // authRef.current = authState
+
+    const api = useRef(
+        axios.create({
+            baseURL: 'http://localhost:5000/api/auth',
+        })).current;
+
+    useEffect(() => {
+
+
+        api.interceptors.request.use(
+            (config) => {
+                if (authState.accessToken) {
+                    config.headers['Authorization'] = `Bearer ${authState.accessToken}`
+                }
+                return config
+            },
+            (error) => {
+                console.log('Interceptor error: ', error)
+                return Promise.reject(error)
+            }
+        );
+
+        api.interceptors.response.use(
+            (response) => {
+                return response;
+            },
+            async (error) => {
+                const originalRequest = error.config;
+                if (error.response.status === 401 && !originalRequest._retry) {
+                    originalRequest._retry = true
+                    const response = await axios.post(`${BASEURL}/refresh-token`, {
+                        refreshToken: authState.refreshToken
+                    });
+                    setAuthState({
+                        ...authState,
+                        accessToken: response.data.accessToken,
+                        // refreshToken:response.data.refreshToken IF NEW REFRESH TOKEN IS SENT
+                    })
+
+                    originalRequest.headers['Authorization'] = `Bearer ${response.data.accessToken}`
+                    return api(originalRequest)
+
+                }
+                console.log('Response refreshtoken error: ', error)
+                return Promise.reject(error)
+            }
+        );
+
+        setAuthState((previousState) => ({
+            ...previousState,
+            api,
+        }))
+
+    }, [])
+
 
     const [signedUpUser, setSignedUpUser] = useState({
         idNumber: "",
@@ -17,21 +77,23 @@ export default function AuthProvider({ children }) {
         email: "",
         password: "",
         confirmPassword: "",
-        Role: "",
-        Department: "",
+        role: "",
+        department: "",
     })
 
     const [loggedInUser, setLoggedInUser] = useState({
-        email: "",
+        idNumber: "",
         password: "",
     })
 
     const handleLogin = async () => {
         try {
             const response = await api.post('/login', loggedInUser)
-            localStorage.setItem('access_token', response.data.access_token)
-            localStorage.setItem('refresh_token', response.data.refresh_token)
-            console.log("Logged In response: ", response.data)
+            setAuthState({
+                accessToken: response.data.token,
+                refreshToken: response.data.refreshToken
+            })
+            console.log("Logged In response: ", response.data, 'and the set state is', authState)
         } catch (error) {
             console.log('Error: ', error)
         }
@@ -39,26 +101,36 @@ export default function AuthProvider({ children }) {
 
     const handleSignUp = async () => {
         try {
-            const response = await api.post('/signup', signedUpUser)
-            localStorage.setItem('access_token', response.data.access_token)
-            localStorage.setItem('refresh_token', response.data.refresh_token)
-            console.log("Signed up user response: ", response.data)
+            const response = await api.post('/register', signedUpUser)
+            setAuthState({
+                accessToken: response.data.token,
+                refreshToken: response.data.refreshToken
+            })
+            console.log("Signed up user response: ", response.data, 'and the set state is', authState)
         } catch (error) {
             console.log('sign up error: ', error)
 
         }
     }
 
-    const isLoggedIn = () => {
-        if (localStorage.getItem('access_token')) {
-            return true
-        }
-        return false
+    const redirectToDashboard = async () => {
+        try {
+            const response = await api.post('/dashboard', signedUpUser)
+            console.log("It actually worked", response.data)
+        } catch (error) {
+            console.log('sign up error: ', error)
 
+        }
     }
+
+    const isLoggedIn = () => !!authState.accessToken;
     const logOut = () => {
-        localStorage.removeItem('access_token')
-        localStorage.removeItem('refresh_token')
+
+        setAuthState({
+            accessToken: '',
+            refreshToken: ''
+        })
+
     }
 
 

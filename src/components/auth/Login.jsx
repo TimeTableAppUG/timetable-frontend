@@ -9,7 +9,7 @@ export default function Login() {
 
 
     const [loginDetails, setLoginDetails] = useState({
-        email: '',
+        idNumber: '',
         password: ''
     })
     const handleLoginSubmit = (event) => {
@@ -32,16 +32,17 @@ export default function Login() {
 
 
 
+
     const inputFields = [
         {
-            id: "email",
-            type: "email",
-            name: "email",
-            placeholder: "example@ug.edu.gh",
-            label: "Email",
-            message: "Please enter a valid email",
+            id: "idNumber",
+            type: "text",
+            name: "idNumber",
+            placeholder: "11223344",
+            label: "ID Number",
+            message: "Please enter a valid ID",
             required: true,
-            pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$",
+            pattern: "^[0-9]{5,}$",
         },
         {
             id: "password",
