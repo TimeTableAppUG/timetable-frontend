@@ -13,6 +13,9 @@ export default function AuthProvider({ children }) {
         refreshToken: null
     })
 
+    const getAccessToken = () => localStorage.getItem('accessToken')
+    const getRefreshToken = () => localStorage.getItem('refreshToken')
+
     // authRef = useRef(authState)
     // authRef.current = authState
 
@@ -26,8 +29,9 @@ export default function AuthProvider({ children }) {
 
         api.interceptors.request.use(
             (config) => {
-                if (authState.accessToken) {
-                    config.headers['Authorization'] = `Bearer ${authState.accessToken}`
+                const accessToken = getAccessToken()
+                if (accessToken) {
+                    config.headers['Authorization'] = `Bearer ${accessToken}`
                 }
                 return config
             },
@@ -45,9 +49,12 @@ export default function AuthProvider({ children }) {
                 const originalRequest = error.config;
                 if (error.response.status === 401 && !originalRequest._retry) {
                     originalRequest._retry = true
+                    const refreshToken = getRefreshToken()
                     const response = await axios.post(`${BASEURL}/refresh-token`, {
-                        refreshToken: authState.refreshToken
+                        refreshToken: refreshToken
                     });
+
+                    localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken))
                     setAuthState({
                         ...authState,
                         accessToken: response.data.accessToken,
@@ -91,6 +98,9 @@ export default function AuthProvider({ children }) {
         try {
             setLoggedInUser(userData)
             const response = await api.post('/login', userData)
+            localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken))
+            localStorage.setItem('refreshToken', JSON.stringify(response.data.refreshToken))
+
             setAuthState({
                 accessToken: response.data.token,
                 refreshToken: response.data.refreshToken
@@ -106,6 +116,7 @@ export default function AuthProvider({ children }) {
         try {
             setSignedUpUser(userData)
             const response = await api.post('/register', userData)
+            localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken))
             setAuthState({
                 accessToken: response.data.token,
 
@@ -128,7 +139,7 @@ export default function AuthProvider({ children }) {
         }
     }
 
-    const isLoggedIn = () => !!authState.accessToken;
+    const isLoggedIn = () => !!getAccessToken();
     const logOut = () => {
 
         setAuthState({
