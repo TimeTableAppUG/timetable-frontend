@@ -106,7 +106,7 @@ export default function AuthProvider({ children }) {
             const response = await api.post('/register', signedUpUser)
             setAuthState({
                 accessToken: response.data.token,
-                refreshToken: response.data.refreshToken
+
             })
             console.log("Signed up user response: ", response.data, 'and the set state is', authState)
             navigate('/dummy-dashboard')
@@ -116,7 +116,7 @@ export default function AuthProvider({ children }) {
         }
     }
 
-    const redirectToDashboard = async () => {
+    const Dashboard = async () => {
         try {
             const response = await api.post('/dashboard', signedUpUser)
             console.log("It actually worked", response.data)
