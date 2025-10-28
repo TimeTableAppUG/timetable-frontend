@@ -87,9 +87,10 @@ export default function AuthProvider({ children }) {
         password: "",
     })
 
-    const handleLogin = async () => {
+    const handleLogin = async (userData) => {
         try {
-            const response = await api.post('/login', loggedInUser)
+            setLoggedInUser(userData)
+            const response = await api.post('/login', userData)
             setAuthState({
                 accessToken: response.data.token,
                 refreshToken: response.data.refreshToken
@@ -101,9 +102,10 @@ export default function AuthProvider({ children }) {
         }
     }
 
-    const handleSignUp = async () => {
+    const handleSignUp = async (userData) => {
         try {
-            const response = await api.post('/register', signedUpUser)
+            setSignedUpUser(userData)
+            const response = await api.post('/register', userData)
             setAuthState({
                 accessToken: response.data.token,
 
