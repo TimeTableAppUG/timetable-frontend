@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { AuthContext } from './authContext';
 import axios from 'axios';
-
+import { useNavigate } from "react-router";
 
 
 export default function AuthProvider({ children }) {
     const BASEURL = 'http://localhost:5000/api/auth'
+    let navigate = useNavigate();
 
     const [authState, setAuthState] = useState({
         accessToken: null,
@@ -93,7 +94,8 @@ export default function AuthProvider({ children }) {
                 accessToken: response.data.token,
                 refreshToken: response.data.refreshToken
             })
-            console.log("Logged In response: ", response.data, 'and the set state is', authState)
+            console.log("Logged In response: ", response.data, 'and the set state is', authState);
+            navigate('/dummy-dashboard')
         } catch (error) {
             console.log('Error: ', error)
         }
@@ -107,6 +109,7 @@ export default function AuthProvider({ children }) {
                 refreshToken: response.data.refreshToken
             })
             console.log("Signed up user response: ", response.data, 'and the set state is', authState)
+            navigate('/dummy-dashboard')
         } catch (error) {
             console.log('sign up error: ', error)
 
