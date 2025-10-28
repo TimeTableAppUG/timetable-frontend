@@ -34,8 +34,8 @@ export function SignUp() {
       label: "ID Number",
       message: "Please enter a valid ID",
       required: true,
-      MaxLength: getRole(),
-      pattern: "^[0-9]{5,}$", 
+      maxLength: getRole(),
+      pattern: "^[0-9]{5,}$",
     },
     {
       id: "firstName",
@@ -45,7 +45,7 @@ export function SignUp() {
       label: "First Name",
       message: "Please enter your first name",
       required: true,
-      pattern: "^[A-Za-z]{3,16}$", 
+      pattern: "^[A-Za-z]{3,16}$",
     },
     {
       id: "lastName",
@@ -55,7 +55,7 @@ export function SignUp() {
       label: "Last Name",
       message: "Please enter your last name",
       required: true,
-      pattern: "^[A-Za-z]{3,12}$", 
+      pattern: "^[A-Za-z]{3,12}$",
     },
     {
       id: "email",
@@ -65,7 +65,7 @@ export function SignUp() {
       label: "Email",
       message: "Please enter a valid email",
       required: true,
-      pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$", 
+      pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$",
     },
     {
       id: "password",
@@ -75,7 +75,7 @@ export function SignUp() {
       label: "Password",
       message: `Password must be a minimum of 8 characters in length with at least one number, one uppercase letter, and one symbol`,
       required: true,
-      pattern: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$", 
+      pattern: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$",
     },
     {
       id: "confirmPassword",
@@ -90,13 +90,12 @@ export function SignUp() {
   ];
 
   const handleSubmit = (event) => event.preventDefault();
-  
+
   // tracks input changes for the input fields
   const onChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
-  
   return (
     <div className="grid items-center justify-center text-center">
       <h1 className="mb-[5%] mt-[10%] "> Sign up </h1>
@@ -104,16 +103,14 @@ export function SignUp() {
       <form onSubmit={handleSubmit}>
         <Select
           id="Role"
-          value1="Student"
-          value2="Lecturer"
           placeholder="Select Role"
+          optionValues={["Lecturer", "Student"]}
           onChange={onChange}
         />
         <Select
           id="Department"
-          value1="Department 1"
-          value2="Department 2"
           placeholder="Select Department"
+          optionValues={["Department 1", "Department 2"]}
           onChange={onChange}
         />
         {inputs.map((input) => (
@@ -127,11 +124,10 @@ export function SignUp() {
         ))}
 
         <button
-          className="text-center bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px]"
-          onSubmit={handleSubmit}
+          className="text-center my-[20px] bg-[linear-gradient(to_right,_#667eea,_#764ba2)] text-white mb-[20px] rounded-[8px] border-[solid] border-[1px] h-[44px] w-[400px]"
+          type="submit"
         >
-          {" "}
-          Sign Up{" "}
+          Sign Up
         </button>
       </form>
     </div>
