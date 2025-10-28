@@ -98,10 +98,10 @@ export function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    setSignedUpUser(values)
-    console.log("Logged in user from context: ", signedUpUser);
+    // setSignedUpUser(values)
+    console.log("Logged in user from context: ", values);
 
-    handleSignUp();
+    handleSignUp(values);
     console.log('This is the submit ', values)
 
   }

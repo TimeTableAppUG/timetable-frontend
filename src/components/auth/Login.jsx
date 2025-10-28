@@ -3,7 +3,10 @@ import Input from '../Input';
 import { AuthContext } from '../../contexts/authContext/authContext';
 
 
+
 export default function Login() {
+
+
 
     const { loggedInUser, setLoggedInUser, handleLogin, isLoggedIn } = useContext(AuthContext)
 
@@ -14,11 +17,11 @@ export default function Login() {
     })
     const handleLoginSubmit = (event) => {
         event.preventDefault();
-        setLoggedInUser(loginDetails)
+        // setLoggedInUser(loginDetails)
         console.log("Logged in user from context: ", loggedInUser);
-
-        handleLogin();
+        handleLogin(loginDetails);
         console.log('This is the submit ', loginDetails)
+
 
         // redirect to lecturer or student dashboard after authentication using isloggedIn
     }
@@ -58,7 +61,7 @@ export default function Login() {
     ]
 
     return (
-        <div className="grid items-center justify-center text-center p-10">
+        <div className="grid items-center justify-center text-center">
             <h1 className="mb-[5%] mt-[10%]  text-center">Login </h1>
             <form onSubmit={handleLoginSubmit}>
                 {inputFields.map((item, id) => {
