@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import Input from '../Input'
+import { useState, useContext } from 'react';
+import Input from '../Input';
+import { AuthContext } from '../../contexts/authContext/authContext';
 
 
 export default function Login() {
+
+    const { loggedInUser, setLoggedInUser, handleLogin, isLoggedIn } = useContext(AuthContext)
 
 
     const [loginDetails, setLoginDetails] = useState({
@@ -11,9 +14,13 @@ export default function Login() {
     })
     const handleLoginSubmit = (event) => {
         event.preventDefault();
+        setLoggedInUser(loginDetails)
+        console.log("Logged in user from context: ", loggedInUser);
+
+        handleLogin();
         console.log('This is the submit ', loginDetails)
-        // make use of auth context to send a post request to the backend and 
-        // redirect to lecturer or student dashboard after authentication
+
+        // redirect to lecturer or student dashboard after authentication using isloggedIn
     }
 
     function loginUpdate(event) {

@@ -29,9 +29,9 @@ export default function AuthProvider({ children }) {
     const handleLogin = async () => {
         try {
             const response = await api.post('/login', loggedInUser)
-            localStorage.setItem('access_token', response.token)
-            localStorage.setItem('refresh_token', response.token)
-            console.log("Logged In response: ", response)
+            localStorage.setItem('access_token', response.data.access_token)
+            localStorage.setItem('refresh_token', response.data.refresh_token)
+            console.log("Logged In response: ", response.data)
         } catch (error) {
             console.log('Error: ', error)
         }
@@ -40,11 +40,12 @@ export default function AuthProvider({ children }) {
     const handleSignUp = async () => {
         try {
             const response = await api.post('/signup', signedUpUser)
-            localStorage.setItem('access_token', response.token)
-            localStorage.setItem('refresh_token', response.token)
-            console.log("Signed up user response: ", response)
+            localStorage.setItem('access_token', response.data.access_token)
+            localStorage.setItem('refresh_token', response.data.refresh_token)
+            console.log("Signed up user response: ", response.data)
         } catch (error) {
             console.log('sign up error: ', error)
+
         }
     }
 
@@ -56,8 +57,8 @@ export default function AuthProvider({ children }) {
 
     }
     const logOut = () => {
-        localStorage.clear('access_token')
-        localStorage.clear('refresh_token')
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
     }
 
 
