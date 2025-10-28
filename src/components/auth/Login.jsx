@@ -58,7 +58,7 @@ export default function Login() {
     ]
 
     return (
-        <div className="grid items-center justify-center text-center">
+        <div className="grid items-center justify-center text-center p-10">
             <h1 className="mb-[5%] mt-[10%]  text-center">Login </h1>
             <form onSubmit={handleLoginSubmit}>
                 {inputFields.map((item, id) => {
