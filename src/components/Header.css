@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url('https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js');
@@ -5,19 +6,12 @@
 .header-container {
   /* display: grid;
  place-items: center; */
-  background-image: linear-gradient(to right, #667eea, #764ba2);
-  height: 29%;
-  padding: 30px;
-  text-align: center;
-  font-family: "Inter";
-  color: #ffffff;
+ 
 }
-span {
-  font-family: "Noto Color Emoji";
-}
+
 
 h1 {
-
+  
   font-size: 31px;
   font-style: bold;
   font-weight: 700;
