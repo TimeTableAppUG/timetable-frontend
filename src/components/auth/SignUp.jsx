@@ -1,9 +1,14 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Input from "../Input";
 import Select from "../Select";
 import { AuthContext } from '../../contexts/authContext/authContext'
 
 export function SignUp() {
+  useEffect(() => {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('refreshToken')
+  }, [])
+
   const { signedUpUser, setSignedUpUser, handleSignUp, isLoggedIn } = useContext(AuthContext)
   // State object to hold all form input values
   const [values, setValues] = useState({

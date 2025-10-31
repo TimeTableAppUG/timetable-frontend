@@ -1,10 +1,14 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Input from '../Input';
 import { AuthContext } from '../../contexts/authContext/authContext';
 
 
 
 export default function Login() {
+    useEffect(() => {
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('refreshToken')
+    }, [])
 
 
 
