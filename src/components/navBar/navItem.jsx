@@ -1,14 +1,13 @@
-export default function NavItem({ navName }) {
-    let navItemSelected = false
+import { useState } from 'react'
 
-    function handleNavItem() {
-        navItemSelected = !navItemSelected
+export default function NavItem({ navName, navItemSelected }) {
+    // const [navItemSelected, setNavItemSelected] = useState(false)
 
-    }
+
     return (
-        <div onClick={handleNavItem} className="grid justify-center items-center pt-5">
-            <p className={navItemSelected ? 'text-indigo-600 text-center' : 'text-gray-600 text-center'}>{navName}</p>
-            {navItemSelected ?
+        <div className="grid justify-center items-center pt-5 font-semibold cursor-default">
+            <p className={navItemSelected == navName ? 'text-indigo-600 text-center' : 'text-gray-600 text-center'}>{navName}</p>
+            {navItemSelected == navName ?
                 <hr className="w-full pt-5 pl-5 pr-5 pb-0 border-2 border-indigo-600"></hr>
                 :
                 <div className="w-full pt-5 pl-5 pr-5 pb-0 "></div>
