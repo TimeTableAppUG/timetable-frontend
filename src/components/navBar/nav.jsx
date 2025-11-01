@@ -17,11 +17,11 @@ export default function NavBar() {
 
 
     return (
-        <>
-            <nav className="flex justify-evenly items-center cursor-default bg-gray-100">
+        <div className="w-full">
+            <nav className="flex flex-col md:flex-row justify-evenly items-center cursor-default bg-gray-100 w-full ">
                 {navItems.map((item, id) => {
                     return (
-                        <div onClick={() => handleNavItem(item)}>
+                        <div onClick={() => handleNavItem(item)} className="w-full md:w-auto">
                             <NavItem navName={item} navItemSelected={navItemSelected} />
                         </div>
                     )
@@ -30,6 +30,6 @@ export default function NavBar() {
 
             </nav>
             <hr className="border-1 border-gray-300"></hr>
-        </>
+        </div>
     )
 }
