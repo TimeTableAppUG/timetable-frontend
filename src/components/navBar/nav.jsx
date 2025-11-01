@@ -14,7 +14,7 @@ export default function NavBar() {
         "Logout"
     ]
 
-    const [navItemSelected, setNavItemSelected] = useState(false)
+    const [navItemSelected, setNavItemSelected] = useState('Dashboard')
     function handleNavItem(item) {
         setNavItemSelected(item)
         if (item.toString() == 'Logout') {
