@@ -1,7 +1,11 @@
 import NavItem from './navItem';
-import { useState } from 'react'
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router'
+import { AuthContext } from '../../contexts/authContext/authContext'
 
 export default function NavBar() {
+    let navigate = useNavigate();
+    const { logOut } = useContext(AuthContext)
 
     const navItems = [
         "Dashboard",
@@ -13,7 +17,17 @@ export default function NavBar() {
     const [navItemSelected, setNavItemSelected] = useState(false)
     function handleNavItem(item) {
         setNavItemSelected(item)
+        if (item.toString() == 'Logout') {
+            logOut()
+
+        } else if (item.toString() == 'Dashboard') {
+            navigate('/Dashboard')
+        } else {
+            navigate('/Dashboard/' + item.toString())
+        }
+
     }
+
 
 
     return (
