@@ -4,5 +4,5 @@ export default FileInput = ({ onFileSelect }) => {
     onFileSelect(file);
   };
 
-  return <Input type="file" onChange={handleFileChange()} />;
+  return <Input type="file" onChange={handleFileChange} />;
 };
