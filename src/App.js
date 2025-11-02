@@ -1,9 +1,6 @@
-import './App.css';
 import { Header,  } from './components/Header';
 import { Signin  } from './components/Signin';
-import { SignUp } from "./components/auth/SignUp";
-import { Header } from "./components/Header";
-import Login from './components/auth/Login';
+import {SignUp} from './components/auth/SignUp';
 import { Routes, Route } from 'react-router-dom';
 import DummyDashboard from './components/dashboards/dummyDashboard';
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -14,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Signin />} />
         <Route path="/dummy-dashboard" element={<ProtectedRoute><DummyDashboard /></ProtectedRoute>} />
       </Routes>
     </>
