@@ -106,7 +106,7 @@ export default function AuthProvider({ children }) {
                 refreshToken: response.data.refreshToken
             })
             console.log("Logged In response: ", response.data, 'and the set state is', authState);
-            navigate('/dummy-dashboard')
+            navigate('/Dashboard')
         } catch (error) {
             console.log('Error: ', error)
         }
@@ -122,7 +122,7 @@ export default function AuthProvider({ children }) {
 
             })
             console.log("Signed up user response: ", response.data, 'and the set state is', authState)
-            navigate('/dummy-dashboard')
+            navigate('/Dashboard')
         } catch (error) {
             console.log('sign up error: ', error)
 
@@ -131,7 +131,7 @@ export default function AuthProvider({ children }) {
 
     const Dashboard = async () => {
         try {
-            const response = await api.post('/dashboard', signedUpUser)
+            const response = await api.post('/Dashboard', signedUpUser)
             console.log("It actually worked", response.data)
         } catch (error) {
             console.log('sign up error: ', error)
@@ -146,6 +146,10 @@ export default function AuthProvider({ children }) {
             accessToken: '',
             refreshToken: ''
         })
+
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('accessToken')
+        navigate('/login')
 
     }
 
