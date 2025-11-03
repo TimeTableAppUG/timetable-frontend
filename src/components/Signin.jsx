@@ -9,7 +9,7 @@ export function Signin() {
     e.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
-  };
+  };7
 
   return (
     <div className="signin-container">
@@ -46,7 +46,7 @@ export function Signin() {
           </button>
 
           <p className="signin-footer">
-            Don’t have an account? <a href="/signup">Create one</a>
+            Don’t have an account? <a href="/">Create one</a>
           </p>
         </form>
       </div>
