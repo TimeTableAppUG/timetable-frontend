@@ -1,8 +1,12 @@
-export default FileInput = ({ onFileSelect }) => {
+export default function FileInput({ onFileSelect }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     onFileSelect(file);
   };
 
-  return <Input type="file" onChange={handleFileChange} />;
-};
+  return (
+    <div>
+      <input type="file" onChange={handleFileChange} />
+    </div>
+  );
+}

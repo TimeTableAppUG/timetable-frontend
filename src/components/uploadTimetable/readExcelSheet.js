@@ -1,6 +1,6 @@
 import * as XLSX from "xlsx";
 
-export default readExcel = (file) => {
+export default function readExcel(file) {
   return new Promise((resolve, reject) => {
     const excelReader = new FileReader();
 
@@ -20,4 +20,4 @@ export default readExcel = (file) => {
 
     excelReader.readAsArrayBuffer(file);
   });
-};
+}
