@@ -13,10 +13,7 @@ export function Signin() {
     localStorage.removeItem("refreshToken");
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-  const { loggedInUser, handleLogin, isLoggedIn } = useContext(AuthContext);
+  const { loggedInUser, handleLogin } = useContext(AuthContext);
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
