@@ -1,19 +1,21 @@
 .signin-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: flex-start;
+  padding-top: 2rem;
+  min-height: auto;
   font-family: "Inter", sans-serif;
 }
 
 .signin-card {
   background: #fff;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   width: 100%;
   max-width: 400px;
   text-align: center;
+  /* margin-top: 1rem; */
 }
 
 .signin-title {
@@ -62,7 +64,7 @@
 }
 
 .signin-btn {
-  background-image:linear-gradient(to right, #667eea, #764ba2);
+  background-image: linear-gradient(to right, #667eea, #764ba2);
   color: white;
   padding: 0.8rem;
   border: none;
@@ -73,7 +75,7 @@
 }
 
 .signin-btn:hover {
-  background-image: linear-gradient(to right, #764ba2, #667eea);;
+  background-image: linear-gradient(to right, #764ba2, #667eea);
 }
 
 .signin-footer {
@@ -82,7 +84,7 @@
 }
 
 .signin-footer a {
-  color:  #667eea;
+  color: #667eea;
   text-decoration: none;
   font-weight: 600;
 }

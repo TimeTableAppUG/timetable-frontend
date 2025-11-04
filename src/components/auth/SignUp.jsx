@@ -1,15 +1,17 @@
 import { useState, useContext, useEffect } from "react";
 import Input from "../Input";
 import Select from "../Select";
-import { AuthContext } from '../../contexts/authContext/authContext'
+import { AuthContext } from "../../contexts/authContext/authContext";
+import { Link } from "react-router";
 
 export function SignUp() {
   useEffect(() => {
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
-  }, [])
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+  }, []);
 
-  const { signedUpUser, setSignedUpUser, handleSignUp, isLoggedIn } = useContext(AuthContext)
+  const { signedUpUser, setSignedUpUser, handleSignUp, isLoggedIn } =
+    useContext(AuthContext);
   // State object to hold all form input values
   const [values, setValues] = useState({
     idNumber: "",
@@ -107,9 +109,8 @@ export function SignUp() {
     console.log("Logged in user from context: ", values);
 
     handleSignUp(values);
-    console.log('This is the submit ', values)
-
-  }
+    console.log("This is the submit ", values);
+  };
 
   // tracks input changes for the input fields
   const onChange = (event) => {
@@ -149,6 +150,9 @@ export function SignUp() {
         >
           Sign Up
         </button>
+        <p className="signin-footer">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
       </form>
     </div>
   );
