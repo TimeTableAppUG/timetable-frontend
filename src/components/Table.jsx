@@ -10,13 +10,13 @@ export default function Table() {
   ];
 
   return (
-    <div>
-      <table>
+    <div className="flex items-center justify-center m-[1%]">
+      <table calssNa>
         <thead>
           <tr>
-            <th> Time</th>
+            <th className="text-[white] bg-[#4f7eff] p-[10px] border-[1px] border-[solid] border-[#fff]"> Time</th>
               {daysOfWeek.map((day) => (
-                <th key={day}> {day} </th>
+                <th key={day} className="text-[white] bg-[#4f7eff] p-[10px] border-[1px] border-[solid] border-[#fff]"> {day} </th>
               ))}
             
           </tr>
@@ -25,10 +25,10 @@ export default function Table() {
         <tbody>
           {duration.map((times) => (
             <tr key={times}>
-              <td className> {times} </td>
+              <td className=" pr-[40px] pl-[40px] border-[1px] border-[solid] border-[g]"> {times} </td>
               
                 {daysOfWeek.map((day) => (
-                  <td key={day}> <textarea/> </td>
+                  <td key={day} className="border-[1px] border-[solid] border-[g]"> <textarea className="resize-none"/> </td>
                 ))}
               
             </tr>

@@ -1,6 +1,8 @@
+import Table from "../../Table";
+
 export function Dashboard() {
     return (
         <>
-            Dashboard
+            <Table />
         </>)
 }
