@@ -10,8 +10,8 @@ export default function Table() {
   ];
 
   return (
-    <div className="flex items-center justify-center m-[1%]">
-      <table calssNa>
+    <div>
+      <table>
         <thead>
           <tr>
             <th className="text-[white] bg-[#4f7eff] p-[10px] border-[1px] border-[solid] border-[#fff]"> Time</th>
