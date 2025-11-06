@@ -1,12 +1,18 @@
 export default function Table() {
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   const duration = [
-    "7:30 - 9:30",
-    "9:30 - 11:30",
-    "11:30 - 13:30",
-    "13:30 - 15:30",
-    "15:30 - 17:30",
-    "17:30 - 19:30",
+    "7:30 AM - 8:20 AM",
+    "8:30 AM- 9:20 AM",
+    "9:30 AM- 10:20 AM",
+    "10:30 AM - 11:20 AM",
+    "11:30 AM - 12:20 PM",
+    "12:30 PM - 01:20 PM",
+    "01:30 PM - 02:20 PM",
+    "02:30 PM - 03:20 PM",
+    "03:30 PM - 04:20 PM",
+    "04:30 PM - 05:20 PM",
+    "05:30 PM - 06:20 PM",
+    "06:30 PM - 07:20 PM",
   ];
 
   return (
