@@ -207,6 +207,78 @@
           "lecturer": "Prof. Banahene"
         }
       ]
+    },
+    {
+      "id": 4,
+      "department": "JJ Department",
+      "level": "Level 100",
+      "year": "2024/2025",
+      "entries": [
+        {
+          "day": "Monday",
+          "startTime": "7:30 AM",
+          "endTime": "8:30 AM",
+          "courseCode": "STAT101",
+          "venue": "NNB4",
+          "lecturer": "Dr. Amponsah"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "8:30 AM",
+          "endTime": "9:30 AM",
+          "courseCode": "STAT121",
+          "venue": "STAT LAB",
+          "lecturer": "Dr. Owusu"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "10:30 AM",
+          "endTime": "11:30 AM",
+          "courseCode": "STAT113",
+          "venue": "NNB1",
+          "lecturer": "Mr. Opoku"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "11:30 AM",
+          "endTime": "1:30 PM",
+          "courseCode": "STAT132",
+          "venue": "JQB7",
+          "lecturer": "Dr. Owusu"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "1:30 PM",
+          "endTime": "2:30 PM",
+          "courseCode": "STAT108",
+          "venue": "NNB6",
+          "lecturer": "Mrs. Nyarko"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "2:30 PM",
+          "endTime": "3:30 PM",
+          "courseCode": "STAT140",
+          "venue": "JQB5",
+          "lecturer": "Dr. Fianu"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "3:30 PM",
+          "endTime": "5:30 PM",
+          "courseCode": "STAT150",
+          "venue": "NNB3",
+          "lecturer": "Dr. Osei"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "5:30 PM",
+          "endTime": "7:30 PM",
+          "courseCode": "STAT160",
+          "venue": "NNB2",
+          "lecturer": "Prof. Banahene"
+        }
+      ]
     }
   ]
 }

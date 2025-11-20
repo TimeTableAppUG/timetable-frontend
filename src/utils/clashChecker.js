@@ -50,6 +50,9 @@ function findClashes(timetables) {
     for (let j = i + 1; j < entries.length; j += 1) {
       const a = entries[i];
       const b = entries[j];
+      const aLevel = (a.level || '').toString().toLowerCase();
+      const bLevel = (b.level || '').toString().toLowerCase();
+      if (aLevel && bLevel && aLevel !== bLevel) continue;
       if (entriesOverlap(a, b)) {
         clashes.push({
           a: {
