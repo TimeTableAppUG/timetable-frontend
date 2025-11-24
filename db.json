@@ -5,6 +5,7 @@
       "department": "Mathematics Department",
       "level": "Level 200",
       "year": "2024/2025",
+      "semester": "First Semester",
       "entries": [
         {
           "day": "Monday",
@@ -69,6 +70,7 @@
       "department": "Computer Science Department",
       "level": "Level 300",
       "year": "2024/2025",
+      "semester": "Second Semester",
       "entries": [
         {
           "day": "Tuesday",
@@ -141,6 +143,7 @@
       "department": "Statistics Department",
       "level": "Level 100",
       "year": "2024/2025",
+      "semester": "First Semester",
       "entries": [
         {
           "day": "Wednesday",
