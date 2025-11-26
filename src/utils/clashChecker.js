@@ -1,11 +1,11 @@
 function parseTimeToMinutes(timeStr) {
-  if (!timeStr || typeof timeStr !== "string") return null;
+  if (!timeStr || typeof timeStr !== 'string') return null;
   const m = timeStr.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
   if (!m) return null;
   let hh = parseInt(m[1], 10);
   const mm = parseInt(m[2], 10);
   const ampm = m[3].toUpperCase();
-  if (ampm === "AM") {
+  if (ampm === 'AM') {
     if (hh === 12) hh = 0;
   } else {
     if (hh !== 12) hh += 12;
@@ -20,7 +20,7 @@ function entriesOverlap(a, b) {
   const aEnd = parseTimeToMinutes(a.endTime);
   const bStart = parseTimeToMinutes(b.startTime);
   const bEnd = parseTimeToMinutes(b.endTime);
-  if ([aStart, aEnd, bStart, bEnd].some((v) => v === null)) return false;
+  if ([aStart, aEnd, bStart, bEnd].some(v => v === null)) return false;
   return aStart < bEnd && bStart < aEnd;
 }
 
@@ -50,12 +50,11 @@ function findClashes(timetables) {
     for (let j = i + 1; j < entries.length; j += 1) {
       const a = entries[i];
       const b = entries[j];
-<<<<<<< HEAD
+
       const aLevel = (a.level || '').toString().toLowerCase();
       const bLevel = (b.level || '').toString().toLowerCase();
       if (aLevel && bLevel && aLevel !== bLevel) continue;
-=======
->>>>>>> 5ea9412 (feat: add clash checking functionality)
+
       if (entriesOverlap(a, b)) {
         clashes.push({
           a: {
@@ -89,11 +88,11 @@ function hasClash(timetables) {
   return findClashes(timetables).length > 0;
 }
 
-// func to load db
+// func to load db 
 // should be changed when we no longer use a JSON file for storage
 let checkDbClashes;
 try {
-  const db = require("../../db.json");
+  const db = require('../../db.json');
   checkDbClashes = () => ({
     clashes: findClashes(db.timetables),
     hasClash: hasClash(db.timetables),
@@ -102,7 +101,7 @@ try {
   checkDbClashes = () => ({
     clashes: [],
     hasClash: false,
-    error: "could not load db",
+    error: 'could not load db',
   });
 }
 
@@ -110,13 +109,13 @@ try {
 // update db.json with clashes and checj if it works fine
 const _dbCheck = checkDbClashes();
 if (_dbCheck.error) {
-  console.warn("error loading db.json:", _dbCheck.error);
+  console.warn('error loading db.json:', _dbCheck.error);
 } else {
-  console.log("hasClash =", _dbCheck.hasClash);
+  console.log('hasClash =', _dbCheck.hasClash);
   if (_dbCheck.clashes && _dbCheck.clashes.length) {
-    console.log("clashes:", JSON.stringify(_dbCheck.clashes, null, 2));
+    console.log('clashes:', JSON.stringify(_dbCheck.clashes, null, 2));
   } else {
-    console.log("no clashes");
+    console.log('no clashes');
   }
 }
 
