@@ -16,7 +16,7 @@
           "lecturer": "Dr. Mensah"
         },
         {
-          "day": "Monday",
+          "day": "Tuesday",
           "startTime": "9:30 AM",
           "endTime": "11:30 AM",
           "courseCode": "MATH241",
@@ -24,7 +24,7 @@
           "lecturer": "Prof. Adjei"
         },
         {
-          "day": "Monday",
+          "day": "Wednesday",
           "startTime": "11:30 AM",
           "endTime": "12:30 PM",
           "courseCode": "MATH205",
@@ -32,7 +32,7 @@
           "lecturer": "Dr. Serwaa"
         },
         {
-          "day": "Monday",
+          "day": "Thursday",
           "startTime": "12:30 PM",
           "endTime": "1:30 PM",
           "courseCode": "MATH208",
@@ -40,7 +40,7 @@
           "lecturer": "Dr. Ofori"
         },
         {
-          "day": "Monday",
+          "day": "Friday",
           "startTime": "1:30 PM",
           "endTime": "3:30 PM",
           "courseCode": "MATH232",
@@ -56,7 +56,7 @@
           "lecturer": "Prof. Bediako"
         },
         {
-          "day": "Monday",
+          "day": "Wednesday",
           "startTime": "5:30 PM",
           "endTime": "7:30 PM",
           "courseCode": "MATH250",
@@ -73,7 +73,7 @@
       "semester": "Second Semester",
       "entries": [
         {
-          "day": "Tuesday",
+          "day": "Monday",
           "startTime": "7:30 AM",
           "endTime": "9:30 AM",
           "courseCode": "DCIT301",
@@ -89,7 +89,7 @@
           "lecturer": "Dr. Aboagye"
         },
         {
-          "day": "Tuesday",
+          "day": "Wednesday",
           "startTime": "11:30 AM",
           "endTime": "12:30 PM",
           "courseCode": "DCIT315",
@@ -97,7 +97,7 @@
           "lecturer": "Mrs. Twum"
         },
         {
-          "day": "Tuesday",
+          "day": "Thursday",
           "startTime": "12:30 PM",
           "endTime": "1:30 PM",
           "courseCode": "DCIT322",
@@ -105,7 +105,7 @@
           "lecturer": "Mr. Tetteh"
         },
         {
-          "day": "Tuesday",
+          "day": "Friday",
           "startTime": "1:30 PM",
           "endTime": "3:30 PM",
           "courseCode": "DCIT318",
@@ -121,7 +121,7 @@
           "lecturer": "Mr. Larbi"
         },
         {
-          "day": "Tuesday",
+          "day": "Thursday",
           "startTime": "4:30 PM",
           "endTime": "5:30 PM",
           "courseCode": "DCIT399",
@@ -129,7 +129,7 @@
           "lecturer": "Prof. Quist"
         },
         {
-          "day": "Tuesday",
+          "day": "Friday",
           "startTime": "5:30 PM",
           "endTime": "7:30 PM",
           "courseCode": "DCIT314",
@@ -154,7 +154,7 @@
           "lecturer": "Dr. Amponsah"
         },
         {
-          "day": "Wednesday",
+          "day": "Tuesday",
           "startTime": "8:30 AM",
           "endTime": "9:30 AM",
           "courseCode": "STAT121",
@@ -170,7 +170,7 @@
           "lecturer": "Mr. Opoku"
         },
         {
-          "day": "Wednesday",
+          "day": "Thursday",
           "startTime": "11:30 AM",
           "endTime": "1:30 PM",
           "courseCode": "STAT132",
@@ -178,7 +178,7 @@
           "lecturer": "Dr. Owusu"
         },
         {
-          "day": "Wednesday",
+          "day": "Friday",
           "startTime": "1:30 PM",
           "endTime": "2:30 PM",
           "courseCode": "STAT108",
@@ -186,7 +186,7 @@
           "lecturer": "Mrs. Nyarko"
         },
         {
-          "day": "Wednesday",
+          "day": "Monday",
           "startTime": "2:30 PM",
           "endTime": "3:30 PM",
           "courseCode": "STAT140",
@@ -202,7 +202,7 @@
           "lecturer": "Dr. Osei"
         },
         {
-          "day": "Wednesday",
+          "day": "Friday",
           "startTime": "5:30 PM",
           "endTime": "7:30 PM",
           "courseCode": "STAT160",
@@ -216,20 +216,21 @@
       "department": "JJ Department",
       "level": "Level 100",
       "year": "2024/2025",
+      "semester": "First Semester",
       "entries": [
         {
           "day": "Monday",
           "startTime": "7:30 AM",
           "endTime": "8:30 AM",
-          "courseCode": "STAT101",
+          "courseCode": "JJ101",
           "venue": "NNB4",
           "lecturer": "Dr. Amponsah"
         },
         {
-          "day": "Wednesday",
+          "day": "Tuesday",
           "startTime": "8:30 AM",
           "endTime": "9:30 AM",
-          "courseCode": "STAT121",
+          "courseCode": "JJ121",
           "venue": "STAT LAB",
           "lecturer": "Dr. Owusu"
         },
@@ -237,31 +238,31 @@
           "day": "Wednesday",
           "startTime": "10:30 AM",
           "endTime": "11:30 AM",
-          "courseCode": "STAT113",
+          "courseCode": "JJ113",
           "venue": "NNB1",
           "lecturer": "Mr. Opoku"
         },
         {
-          "day": "Wednesday",
+          "day": "Thursday",
           "startTime": "11:30 AM",
           "endTime": "1:30 PM",
-          "courseCode": "STAT132",
+          "courseCode": "JJ132",
           "venue": "JQB7",
           "lecturer": "Dr. Owusu"
         },
         {
-          "day": "Wednesday",
+          "day": "Friday",
           "startTime": "1:30 PM",
           "endTime": "2:30 PM",
-          "courseCode": "STAT108",
+          "courseCode": "JJ108",
           "venue": "NNB6",
           "lecturer": "Mrs. Nyarko"
         },
         {
-          "day": "Wednesday",
+          "day": "Monday",
           "startTime": "2:30 PM",
           "endTime": "3:30 PM",
-          "courseCode": "STAT140",
+          "courseCode": "JJ140",
           "venue": "JQB5",
           "lecturer": "Dr. Fianu"
         },
@@ -269,15 +270,15 @@
           "day": "Wednesday",
           "startTime": "3:30 PM",
           "endTime": "5:30 PM",
-          "courseCode": "STAT150",
+          "courseCode": "JJ150",
           "venue": "NNB3",
           "lecturer": "Dr. Osei"
         },
         {
-          "day": "Wednesday",
+          "day": "Friday",
           "startTime": "5:30 PM",
           "endTime": "7:30 PM",
-          "courseCode": "STAT160",
+          "courseCode": "JJ160",
           "venue": "NNB2",
           "lecturer": "Prof. Banahene"
         }
